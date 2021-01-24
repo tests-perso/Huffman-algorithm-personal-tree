@@ -7,13 +7,14 @@
 
 CC = gcc
 
-NAME	=	antman
+NAME	=	giantman
 
 SRC	=	main.c		\
 		file.c 		\
 		tab.c 		\
-		findpath.c 	\
 		tree.c 		\
+		decode.c 	\
+		decompress.c\
 
 OBJ	=	$(SRC:.c=.o)
 

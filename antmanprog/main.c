@@ -14,6 +14,7 @@ void main(int ac, char **av)
     tab_t tab[256];
     tab_t *finaltab;
     tree_t *tree;
+    int othersize = size;
 
     fill_buff(buff, av[1], size);
     fill_tab(buff, tab, size);
@@ -21,8 +22,6 @@ void main(int ac, char **av)
     tree = build_tree(tab, &size);
     finaltab = malloc(sizeof(tab_t) * size);
     finaltab = find_path(tree, size);
-
-/*  for (int i = 0; i < 256; i++) {
-        printf("tab[%d][%d] : [%c] occurences = [%d]\n", i, tab[i].c, tab[i].c < 32 ? "-" : tab[i].c, tab[i].nbr);
-    }*/
+    print_path(finaltab, buff, othersize, size);
+    force_flush();
 }

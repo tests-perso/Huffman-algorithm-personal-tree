@@ -13,7 +13,6 @@ void fill_buff(byte_t *buff, char *pathname, int size)
 
     read(fd, buff, size);
     buff[size] = '\0';
-    printf("buf : %s size : %d\n", buff, size);
 }
 
 int find_size_file(char *pathname)

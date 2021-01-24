@@ -14,8 +14,10 @@ void get_path(tab_t *pathtab, tree_t *tree, int *pos, path_t temp)
     if (tree->end == 1) {
         temp.str[temp.depth] = '\0';
         pathtab[*pos].c = tree->leaf;
-        pathtab[*pos].path = temp.str;
-        printf("path for [%d] : %s\n", pathtab[*pos].c, pathtab[*pos].path);
+        pathtab[*pos].path = malloc(sizeof(char) * (temp.depth + 1));
+        for (int i = 0; i <= temp.depth; i++)
+            pathtab[*pos].path[i] = temp.str[i];
+        temp.str;
         (*pos)++;
         return;
     }
@@ -32,11 +34,11 @@ tab_t *find_path(tree_t *tree, int size)
     path_t temp;
     int pos = 0;
 
-    temp.str = malloc(sizeof(byte_t) * 256);
+    temp.str = malloc(sizeof(byte_t) * 257);
     for (int i = 0; i < size; i++) {
-        pathtab[i].path = malloc(sizeof(byte_t) * 256);
+        pathtab[i].path = malloc(sizeof(byte_t) * 257);
     }
+    temp.depth = 0;
     get_path(pathtab, tree, &pos, temp);
-    printf("pos %d\n", pos);
     return pathtab;
 }

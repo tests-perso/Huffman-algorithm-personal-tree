@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-byte_t *get_binary(int c)
+byte_t *get_binary(int c, int bit)
 {
     int divi = c;
     byte_t *result = malloc(sizeof(char) * divi);
@@ -17,7 +17,9 @@ byte_t *get_binary(int c)
         result[i] = (divi % 2) + 48;
         divi = divi / 2;
     }
-    result[i] = '\0';
+    for (; i < bit;i++)
+        result[i] = '0';
+    result = my_revstr(result);
     return result;
 }
 
@@ -52,9 +54,8 @@ void fill_tab(byte_t *buff, tab_t *tab, int size)
         tab[i].nbr = 0;
     }
     for (int i = 0; i < size; i++) {
-        if (tab[buff[i]].nbr < 4294967295)
+        if (tab[buff[i]].nbr < 32767)
             (tab[buff[i]].nbr)++;
-            printf("buff [%d] %c\n", i, buff[i]);
     }
 }
 
