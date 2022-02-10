@@ -10,15 +10,16 @@
 byte_t *get_binary(int c, int bit)
 {
     int divi = c;
-    byte_t *result = malloc(sizeof(char) * divi);
+    byte_t *result = malloc((sizeof(char) * divi) + 1);
     int i = 0;
 
     for (; divi != 0; i++) {
         result[i] = (divi % 2) + 48;
         divi = divi / 2;
     }
-    for (; i < bit;i++)
+    for (; i < bit && i < sizeof(char) * divi; i++)
         result[i] = '0';
+    result[i] = '\0';
     result = my_revstr(result);
     return result;
 }
@@ -27,7 +28,7 @@ int find_size_tab(tab_t *tab)
 {
     int size = 0;
 
-    for (int i = 255; tab[i].nbr > 0; i--)
+    for (int i = 255; i > 0 && tab[i].nbr > 0; i--)
         size++;
     return size;
 }

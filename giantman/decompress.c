@@ -25,11 +25,12 @@ void decompress(tree_t *tree)
     int end = 0;
     int c;
 
-    for (int i = 0; i < 900; i++) {
+    for (int i = 0; 1; i++) {
         c = travel_tree(tree);
+        // write(1, "yo\n", 3);
+        write(1, &c, 1);
         if (c == 256)
             return;
-        write(1, &c, 1);
         //break;
     }
 }

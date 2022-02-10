@@ -19,7 +19,7 @@ void print_path(tab_t *finaltab, byte_t *buff, int size, int sizetab)
         print_bits_to_octets(newtab[buff[i]].path);
     }
     print_bits_to_octets(newtab[256].path);
-    printf("caracter : %d, path : %s\n", newtab[256].c, newtab[256].path);
+    // printf("caracter : %d, path : %s\n", newtab[256].c, newtab[256].path);
 }
 
 void print_small_tree(tree_t **tree, int size)

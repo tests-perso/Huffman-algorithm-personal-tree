@@ -55,7 +55,8 @@ void print_bits_to_octets(char *str)
 {
     global_t *global = get_global_struct();
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    // printf("str : %s\n", str);
+    for (int i = 0; str != NULL && str[i] != '\0'; i++) {
         if (global->pos == 8)
             concat_buff_to_outbuf(global);
         global->buf[global->pos] = str[i];

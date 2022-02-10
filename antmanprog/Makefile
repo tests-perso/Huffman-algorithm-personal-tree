@@ -20,12 +20,14 @@ SRC	=	main.c		\
 
 OBJ	=	$(SRC:.c=.o)
 
+CFLAGS = -g1
+
 I = -I. my.h
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(I) $(SRC)
+	$(CC) -o $(NAME) $(CFLAGS) $(I) $(SRC)
 
 clean:
 	rm -f $(NAME)

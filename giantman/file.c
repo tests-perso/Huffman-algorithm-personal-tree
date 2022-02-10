@@ -19,6 +19,6 @@ char *read_file(char *pathname)
     buff = malloc(sizeof(char) * (size + 1));
     read(fd, buff, size);
     buff[size] = '\0';
-    printf("case 0 : %d\n", buff[0]);
+    // printf("case 0 : %d\n", buff[0]);
     return buff;
 }

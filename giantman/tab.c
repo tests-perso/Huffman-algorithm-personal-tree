@@ -67,7 +67,7 @@ tab_t *get_tab(int *sizetab)
     for (i = 0; fin == 0; i++) {
         tab[i].c = get_word(&fin);
         tab[i].nbr = get_weight();
-        printf("[%d] word : %d weight = %d\n", i, tab[i].c, tab[i].nbr);
+        // printf("[%d] word : %d weight = %d\n", i, tab[i].c, tab[i].nbr);
     }
     tab[i].nbr = 0;
     *sizetab = i;
